@@ -11,6 +11,7 @@ The user will be prompted to run a command to start the timer.
 1) Work Timer Function<br>
 A timer that counts down from 25 Minutes.
     * Requires prompt and user input to begin
+    * Counter will count down from 25 minutes
     * Update the user with time remaining
     * Requires sound and/ or visual indication when finished 
     * If the user inputs the wrong prompt, an error message will be displayed and the list of accaptable inputs will be displayed. 
@@ -22,7 +23,8 @@ Timer that starts only after work timer.
     * Runs for 5 minutes, 3 times.
     * Every 4th time, runs for 15 minutes
     * sound and/ or visual alert when finished
-    * prmpt the user to begin new timer 
+    * prompt the user to begin new timer 
+    * If the user inputs the wrong prompt, an error message will be displayed and the list of accaptable inputs will be displayed. 
 
 <br>
 
@@ -32,7 +34,9 @@ Timer that starts only after work timer.
     * goes down when the user doesnt start the break timer after the work timer(requires prompt)
     * goes up when user break timer and work timer runs. 
     *If the meter is full, a happy emoji will be displayed
-    *If the meter is half-way 
+    *If the meter is half-way a neutral expression emoji will display
+    *when the meter is low, a sad emoji will display
+    * User can check how their "pet" is at any time. 
 
 <br>
 
