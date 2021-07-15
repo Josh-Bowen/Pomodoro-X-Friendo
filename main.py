@@ -1,7 +1,10 @@
 import time
 import os
-import art
+# import art
 
+# art_1=art("coffee")
+
+# print(art_1)
 
 def welcome():
     os.system("clear")
@@ -93,17 +96,21 @@ your_pet()
 user_input = ""
 
 while user_input != "bye":
-    user_input = input("enter a command: \n")
-    if user_input == "work":
-        work_timer()
-    elif user_input == "break":
-        break_timer()
-    elif user_input == "buddy":
-        your_pet()
-        print(pet_mood)
-    elif user_input == "help":
-        help()
-    elif user_input == "bye":
-        print("See you next time!")
-    else:
-        print("I dont know that command...")
+    try:
+        user_input = input("enter a command: \n")
+        if user_input == "work":
+            work_timer()
+        elif user_input == "break":
+            break_timer()
+        elif user_input == "buddy":
+            os.system("clear")
+            your_pet()
+        elif user_input == "help":
+            help()
+        elif user_input == "bye":
+            print("See you next time!")
+        else:
+            print("I dont know that command...type 'help' if you're stuck")
+    except KeyboardInterrupt:
+        print("\nGreat work today!!!")
+        exit()
