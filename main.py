@@ -13,20 +13,20 @@ def welcome():
 
 # Keeps track of number of study times
 study_times = 0
-print(study_times)
 # 25 minute timer
 # dont forget to change run time
 def work_timer():
     global study_times
-    print(study_times)
     minutes = 0
-    print("25 minute timer starts now!")
+    print("25 minute timer starts now!\n")
     while minutes <= 1:
         time.sleep(60)
         minutes = minutes + 1
-        print(study_times)
     study_times += 1
-    print(f"{study_times} study times completed... \n Time for a break!")
+    if study_times < 4:
+        print(f"{study_times} study times completed... \nTime for a break!\n")
+    else:
+        print(f"{study_times} completed! Time for a 15 minute break!\n")
 
 # 5 minute timer
 # dont forget to change run time
@@ -34,42 +34,52 @@ def break_timer():
     global study_times
     minutes = 0 
     if study_times <4:
-        print("5 minute break! Let's go!")
+        print("5 minute break! Let's go!\n")
         while minutes != 1:
             time.sleep(60)
             minutes = minutes + 1
-            print("break over :( ")
+            print("break over :( \n")
     elif study_times == 4:
-        print("You've earned a long break.")
+        print("You've earned a long break.\n")
         while minutes != 1:
             time.sleep(60)
             minutes = minutes + 1
-            print("long break over :( ")
+            print("long break over :( \n")
             study_times = 0
 
 
-def pomodoro():
-    while True:
-        try:
-            active = False
-            work_start = input("Press enter to begin 25 minute work timer: ")
-            active = True
-            work_timer()
-            active = False
-            break_start = input("Press enter to start break timer")
-            active = True
-            break_timer()
-        except KeyboardInterrupt:
-            exit = input("Are you sure you want to exit? (Y / N): ")
-            if exit == "Y":
-                raise Exception("See Ya!")
-            elif exit == "N":
-                continue
-            
 
 
+# after any timer runs, happiness gets a boost of points,
+# then while program is waiting for input, happiness ticks down every second or so...
 
 
-welcome()
-pomodoro()
+#this is your python pet
+
+happy_pet = ":)"
+neutral_pet = ":|"
+sad_pet = ":("
+name = str(input("Name your pet: \n"))
+
+def your_pet():
+    name.capitalize()
+    pet_mood = 50
+    if pet_mood <= 33:
+        print(f"{name} is a bit sad {sad_pet}")
+    elif pet_mood <= 66:
+        print(f"{name} is a doing ok {neutral_pet}")
+    else:
+        print(f"{name} is a super happy! {happy_pet} Great job!")
+ 
+# def pet_mood():
+   
+        
+
+
+while True:
+    start = time.time()
+    work_timer()
+    end = time.time() - start
+    points_down = int(end)
+    print(points_down)
 
