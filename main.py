@@ -1,4 +1,18 @@
 import time
+import os
+# import art
+
+
+def welcome():
+    os.system("clear")
+    welcome = print("""
+    *********************************************
+    Welcome to your best and newest Pomodoro app!
+    *********************************************
+    """)
+   
+
+welcome()
 
 # Keeps track of number of study times
 study_times = 0
@@ -34,14 +48,15 @@ def break_timer():
         study_times = 0
 
 
-welcome = print("Welcome to your best and newest Pomodoro app!")
+
 work_start = input("Press enter to begin 25 minute work timer: ")
 break_start = input("Press enter to start break timer")
 print(study_times)
 
 def pomodoro():
-    print(welcome)
     print(work_start)
     work_timer()
     print(break_start)
     break_timer()
+
+pomodoro()
