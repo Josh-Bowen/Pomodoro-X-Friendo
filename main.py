@@ -5,11 +5,12 @@ import os
 
 def welcome():
     os.system("clear")
-    welcome = print("""
+    print("""
     *****************************************************
     ****Welcome to your best and newest Pomodoro app!****
     *****************************************************
     """)
+    help()
 
 # Keeps track of number of study times
 study_times = 0
@@ -17,6 +18,8 @@ study_times = 0
 # dont forget to change run time
 def work_timer():
     global study_times
+    global pet_mood
+    happy_timer = time.time()
     minutes = 0
     print("25 minute timer starts now!\n")
     while minutes <= 1:
@@ -27,11 +30,16 @@ def work_timer():
         print(f"{study_times} study times completed... \nTime for a break!\n")
     else:
         print(f"{study_times} completed! Time for a 15 minute break!\n")
+    end_happy = time.time() - happy_timer
+    pet_mood += end_happy // 10
+    commands()
 
 # 5 minute timer
 # dont forget to change run time
 def break_timer():
     global study_times
+    global pet_mood
+    happy_timer = time.time()
     minutes = 0 
     if study_times <4:
         print("5 minute break! Let's go!\n")
@@ -39,47 +47,66 @@ def break_timer():
             time.sleep(60)
             minutes = minutes + 1
             print("break over :( \n")
+        end_happy = time.time() - happy_timer
+        pet_mood += end_happy // 10
+        commands()
     elif study_times == 4:
         print("You've earned a long break.\n")
         while minutes != 1:
             time.sleep(60)
             minutes = minutes + 1
             print("long break over :( \n")
-            study_times = 0
-
-
-
-
-# after any timer runs, happiness gets a boost of points,
-# then while program is waiting for input, happiness ticks down every second or so...
-
+        study_times = 0
+        end_happy = time.time() - happy_timer
+        pet_mood += end_happy // 10
+        commands()
 
 #this is your python pet
 
 happy_pet = ":)"
 neutral_pet = ":|"
 sad_pet = ":("
-name = str(input("Name your pet: \n"))
+pet_mood = 500
 
 def your_pet():
-    name.capitalize()
-    pet_mood = 50
-    if pet_mood <= 33:
+    name.title()
+    if pet_mood <= 333:
         print(f"{name} is a bit sad {sad_pet}")
-    elif pet_mood <= 66:
+        commands()
+    elif pet_mood <= 666:
         print(f"{name} is a doing ok {neutral_pet}")
+        commands()
     else:
         print(f"{name} is a super happy! {happy_pet} Great job!")
+
+
+def help():
+    print(''' Here is a list of commands:
+    Start work timer: "work"
+    Start break timer: "break"
+    Check on your buddy: "buddy"
+    Exit the application: "bye"
+    List of commands: "help"
+    ''')
+
  
-# def pet_mood():
-   
-        
+def commands():
+    user_input = input("enter a command: \n")
+    if user_input == "work":
+        work_timer()
+    elif user_input == "break":
+        break_timer()
+    elif user_input == "buddy":
+        your_pet()
+        print(pet_mood)
+    elif user_input == "help":
+        help()
+    elif user_input == "bye":
+        exit()
 
 
-while True:
-    start = time.time()
-    work_timer()
-    end = time.time() - start
-    points_down = int(end)
-    print(points_down)
 
+welcome()
+name = str(input("Name your pet: \n"))
+your_pet()
+commands()
