@@ -1,6 +1,6 @@
 import time
 import os
-# import art
+import art
 
 
 def welcome():
@@ -32,7 +32,6 @@ def work_timer():
         print(f"{study_times} completed! Time for a 15 minute break!\n")
     end_happy = time.time() - happy_timer
     pet_mood += end_happy // 10
-    commands()
 
 # 5 minute timer
 # dont forget to change run time
@@ -49,7 +48,6 @@ def break_timer():
             print("break over :( \n")
         end_happy = time.time() - happy_timer
         pet_mood += end_happy // 10
-        commands()
     elif study_times == 4:
         print("You've earned a long break.\n")
         while minutes != 1:
@@ -59,7 +57,7 @@ def break_timer():
         study_times = 0
         end_happy = time.time() - happy_timer
         pet_mood += end_happy // 10
-        commands()
+
 
 #this is your python pet
 
@@ -72,10 +70,8 @@ def your_pet():
     name.title()
     if pet_mood <= 333:
         print(f"{name} is a bit sad {sad_pet}")
-        commands()
     elif pet_mood <= 666:
         print(f"{name} is a doing ok {neutral_pet}")
-        commands()
     else:
         print(f"{name} is a super happy! {happy_pet} Great job!")
 
@@ -89,8 +85,14 @@ def help():
     List of commands: "help"
     ''')
 
- 
-def commands():
+
+
+welcome()
+name = str(input("Name your pet: \n"))
+your_pet()
+user_input = ""
+
+while user_input != "bye":
     user_input = input("enter a command: \n")
     if user_input == "work":
         work_timer()
@@ -102,11 +104,6 @@ def commands():
     elif user_input == "help":
         help()
     elif user_input == "bye":
-        exit()
-
-
-
-welcome()
-name = str(input("Name your pet: \n"))
-your_pet()
-commands()
+        print("See you next time!")
+    else:
+        print("I dont know that command...")
