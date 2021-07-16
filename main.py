@@ -30,31 +30,45 @@ def welcome():
     
     ''')
 
+#prints list of commands after user_input help
+def help():
+    print(''' \nHere is a list of commands:
+    Start work timer: "work"
+    Start break timer: "break"
+    Check on your buddy: "friendo"
+    Need a little confidence boost: "vibe check"
+    Exit the application: "bye"
+    List of commands: "help"\n
+    ''')
 
 # Keeps track of number of times work_timer has run
 study_times = 0
 
 # 25 minute timer
 def work_timer():
-    global study_times
-    global pet_mood
-    # saves current time to be deducted later
-    happy_timer = time.time()
-    minutes = 0
-    print("\n25 minute timer starts now!\n")
-    # counts up for every .sleep() cycle
-    while minutes <= 25:
-        time.sleep(60)
-        minutes = minutes + 1
-    study_times += 1
-    if study_times < 4:
-        print(f"\n{study_times} work times completed... \nTime for a break!\n")
-    # runs if work_timer has run 4 times
-    else:
-        print(f"\n{study_times} completed! Time for a 15 minute break!\n")
-    # stops timer, returns an int and adds points to pet_mood
-    end_happy = time.time() - happy_timer
-    pet_mood += end_happy // 10
+    try:
+        global study_times
+        global pet_mood
+        # saves current time to be deducted later
+        happy_timer = time.time()
+        minutes = 0
+        print("\n25 minute timer starts now!\n Press ctrl + c to stop timer. \n")
+        # counts up for every .sleep() cycle
+        while minutes <= 25:
+            time.sleep(60)
+            minutes = minutes + 1
+        study_times += 1
+        if study_times < 4:
+            print(f"\n{study_times} work times completed... \nTime for a break!\n")
+        # runs if work_timer has run 4 times
+        else:
+            print(f"\n{study_times} completed! Time for a 15 minute break!\n")
+        # stops timer, returns an int and adds points to pet_mood
+        end_happy = time.time() - happy_timer
+        pet_mood += end_happy // 10
+    except KeyboardInterrupt:
+        print("\n ")
+
 
 # 5 minute timer
 # dont forget to change run time
@@ -119,20 +133,9 @@ def your_pet():
     else:
         print(f"\n{name} is a super happy! {happy_pet} Great job!\n")
 
-#prints list of commands after user_input help
-def help():
-    print(''' \nHere is a list of commands:
-    Start work timer: "work"
-    Start break timer: "break"
-    Check on your buddy: "friendo"
-    Need a little confidence boost: "vibe check"
-    Exit the application: "bye"
-    List of commands: "help"\n
-    ''')
 
-
-user_input = ""
 name = ""
+
 #while loop and try/except block allow app to fail gracefully afet keyboard innterrupt
 while name == "":
     try:
@@ -144,6 +147,9 @@ while name == "":
     except KeyboardInterrupt:
         print("\nGone so soon???\n")
         exit()
+
+
+user_input = ""
 
 #main user interface, takes any of the seven commands and returns the appropriate function
 while user_input != "\nbye\n":
@@ -166,7 +172,6 @@ while user_input != "\nbye\n":
         # pulls a random affirmation from the tuple
         elif user_input == "vibe check":
             affirm_tuple()
-            #print("(づ￣ ³￣)づ ")
         #prints list of usable commands
         elif user_input == "help":
             help()
