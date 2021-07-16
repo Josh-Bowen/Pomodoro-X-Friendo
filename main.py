@@ -88,15 +88,14 @@ def help():
     List of commands: "help"
     ''')
 
-
-
-welcome()
-name = str(input("Name your pet: \n"))
-your_pet()
 user_input = ""
+
 
 while user_input != "bye":
     try:
+        welcome()
+        name = str(input("Name your pet: \n"))
+        your_pet()
         user_input = input("enter a command: \n")
         if user_input == "work":
             work_timer()
