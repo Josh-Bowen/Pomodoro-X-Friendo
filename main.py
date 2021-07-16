@@ -4,6 +4,7 @@ from random import choice
 from art import *
 
 
+
 def welcome():
     os.system("clear")
     print("""
@@ -80,9 +81,9 @@ def affirm_tuple():
 
 #this is your python pet
 
-happy_pet = aprint("happy")
-neutral_pet = ":|"
-sad_pet = ":("
+happy_pet = art("happy")
+neutral_pet = art("depressed")
+sad_pet = art("cry")
 pet_mood = 500
 
 def your_pet():
@@ -105,12 +106,12 @@ def help():
     ''')
 
 
-
 user_input = ""
 welcome()
+heading()
 name = str(input("Name your pet: \n"))
 your_pet()
-heading()
+
 
 while user_input != "bye":
     try:
@@ -123,6 +124,7 @@ while user_input != "bye":
             your_pet()
         elif user_input == "vibe check":
             affirm_tuple()
+            aprint("hugs")
         elif user_input == "help":
             help()
         elif user_input == "bye":
