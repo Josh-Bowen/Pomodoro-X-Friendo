@@ -52,7 +52,7 @@ def work_timer():
         # saves current time to be deducted later
         happy_timer = time.time()
         minutes = 0
-        print("\n25 minute timer starts now!\n Press ctrl + c to stop timer. \n")
+        print("\n 25 minute timer starts now!\n Press ctrl + c to stop timer. \n")
         # counts up for every .sleep() cycle
         while minutes <= 25:
             time.sleep(60)
@@ -73,33 +73,36 @@ def work_timer():
 # 5 minute timer
 # dont forget to change run time
 def break_timer():
-    global study_times
-    global pet_mood
-    # saves current time to be deducted later
-    happy_timer = time.time()
-    minutes = 0 
-    if study_times <4:
-        print("\n5 minute break! Let's go!\n")
-        # runs 5 minute break timer
-        while minutes != 5:
-            time.sleep(60)
-            minutes = minutes + 1
-        print("\nbreak over :( \n")
-        # ends timer to and adds into to pet_mood
-        end_happy = time.time() - happy_timer
-        pet_mood += end_happy // 10
-    elif study_times == 4:
-        print("\nYou've earned a long break.\n")
-        # runs a 15 minute timer if work_timer has run 4 times
-        while minutes != 1:
-            time.sleep(60)
-            minutes = minutes + 1
-            print("\nlong break over :( \n")
-        #resets study times back to 0
-        study_times = 0
-        # ends timer to and adds into to pet_mood
-        end_happy = time.time() - happy_timer
-        pet_mood += end_happy // 10
+    try:
+        global study_times
+        global pet_mood
+        # saves current time to be deducted later
+        happy_timer = time.time()
+        minutes = 0 
+        if study_times <4:
+            print("\n 5 minute break! Let's go!\n Press ctrl + c to stop timer\n")
+            # runs 5 minute break timer
+            while minutes != 5:
+                time.sleep(60)
+                minutes = minutes + 1
+            print("\n break over :( \n")
+            # ends timer to and adds into to pet_mood
+            end_happy = time.time() - happy_timer
+            pet_mood += end_happy // 10
+        elif study_times == 4:
+            print("\n 15 minute break starts now!!!\n Press ctrl + c to stop timer\n")
+            # runs a 15 minute timer if work_timer has run 4 times
+            while minutes != 1:
+                time.sleep(60)
+                minutes = minutes + 1
+                print("\nlong break over :( \n")
+            #resets study times back to 0
+            study_times = 0
+            # ends timer to and adds into to pet_mood
+            end_happy = time.time() - happy_timer
+            pet_mood += end_happy // 10
+    except KeyboardInterrupt:
+        print("\n\n")
 
 #tuple of affirmations to be called with user_input
 def affirm_tuple():
@@ -120,9 +123,9 @@ def affirm_tuple():
 
 #this is your python pet
 #the three moods of your friendo pet
-happy_pet = "(　＾∇＾)"
+happy_pet = "( ^O^) <3 "
 neutral_pet = "ƪ(‾ε‾“)ʃ"
-sad_pet = ".·´¯`(>▂<)´¯`·." 
+sad_pet = ".·´¯`(>o<)´¯`·." 
 pet_mood = 500
 #prints different result depending on pet_mood score
 def your_pet():
@@ -141,9 +144,11 @@ while name == "":
     try:
         welcome()
         heading()
-        name = str(input("Name your Friendo: \n"))
+        name = str(input(" Name your Friendo: \n"))
         your_pet()
         help()
+        print(sad_pet)
+        print(happy_pet)
     except KeyboardInterrupt:
         print("\nGone so soon???\n")
         exit()
@@ -156,7 +161,7 @@ while user_input != "\nbye\n":
     try:
         #starts timer to count reduce pet_mood while waiting for input
         sad_timer = time.time()
-        user_input = input("\nenter a command: \n")
+        user_input = input("\n Enter a Command: \n")
         #ends timer after user_input and deducts from pet_mood
         end_sad = time.time() - sad_timer
         pet_mood -= end_sad // 5
@@ -176,18 +181,21 @@ while user_input != "\nbye\n":
         elif user_input == "help":
             help()
         #exits app
-        elif user_input == "\nbye\n":
-            print("\nSee you next time!\n")
+        elif user_input == "bye":
+            print("\n See you next time!\n")
+            time.sleep(5)
+            os.system("clear")
+            exit()
         # ckears terminal screen and prints heading function so the user knows they're still in the app
         elif user_input == "clear":
             os.system("clear")
             heading()
         #if user input isnt one of the above, lets the user know its incorrect
         else:
-            print("\nI dont know that command...type 'help' if you're stuck\n")
+            print("\n I dont know that command...type 'help' if you're stuck\n")
         #allows program to fail gracefully with kewboard interrupt
     except KeyboardInterrupt:
-        print("\nGreat work today!!!\n")
+        print("\n Great work today!!!\n")
         exit()
 
 #no code beyond here
