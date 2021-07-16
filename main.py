@@ -1,6 +1,6 @@
 import time
 import os
-from random import choice
+import random
 from art import *
 
 # prints pomodoro x friendo ascii art heading
@@ -15,6 +15,7 @@ def welcome():
     #prints pomodoro x friendo ascii
     heading()
     greeting_2 = print('''
+
     This application allows you to run a pomodoro app with a little bit of added motivation.
     Meet your new best motivational buddy! You can give them whatever name you like down below.
 
@@ -40,17 +41,17 @@ def work_timer():
     # saves current time to be deducted later
     happy_timer = time.time()
     minutes = 0
-    print("25 minute timer starts now!\n")
+    print("\n25 minute timer starts now!\n")
     # counts up for every .sleep() cycle
     while minutes <= 25:
         time.sleep(60)
         minutes = minutes + 1
     study_times += 1
     if study_times < 4:
-        print(f"{study_times} study times completed... \nTime for a break!\n")
+        print(f"\n{study_times} work times completed... \nTime for a break!\n")
     # runs if work_timer has run 4 times
     else:
-        print(f"{study_times} completed! Time for a 15 minute break!\n")
+        print(f"\n{study_times} completed! Time for a 15 minute break!\n")
     # stops timer, returns an int and adds points to pet_mood
     end_happy = time.time() - happy_timer
     pet_mood += end_happy // 10
@@ -64,22 +65,22 @@ def break_timer():
     happy_timer = time.time()
     minutes = 0 
     if study_times <4:
-        print("5 minute break! Let's go!\n")
+        print("\n5 minute break! Let's go!\n")
         # runs 5 minute break timer
         while minutes != 5:
             time.sleep(60)
             minutes = minutes + 1
-            print("break over :( \n")
+        print("\nbreak over :( \n")
         # ends timer to and adds into to pet_mood
         end_happy = time.time() - happy_timer
         pet_mood += end_happy // 10
     elif study_times == 4:
-        print("You've earned a long break.\n")
+        print("\nYou've earned a long break.\n")
         # runs a 15 minute timer if work_timer has run 4 times
         while minutes != 1:
             time.sleep(60)
             minutes = minutes + 1
-            print("long break over :( \n")
+            print("\nlong break over :( \n")
         #resets study times back to 0
         study_times = 0
         # ends timer to and adds into to pet_mood
@@ -100,7 +101,8 @@ def affirm_tuple():
         "Be proud of yourself! You're wonderful!",          #8
         "Making mistakes are the best way to learn.",       #9 
     )
-    print(choice(*my_tuple))
+    #prints random item from tuple
+    print(random.choice(my_tuple))
 
 #this is your python pet
 #the three moods of your friendo pet
@@ -111,21 +113,21 @@ pet_mood = 500
 #prints different result depending on pet_mood score
 def your_pet():
     if pet_mood <= 333:
-        print(f"{name} is a bit sad {sad_pet}")
+        print(f"\n{name} is a bit sad {sad_pet}\n")
     elif pet_mood <= 666:
-        print(f"{name} is a doing ok {neutral_pet}")
+        print(f"\n{name} is a doing ok {neutral_pet}\n")
     else:
-        print(f"{name} is a super happy! {happy_pet} Great job!")
+        print(f"\n{name} is a super happy! {happy_pet} Great job!\n")
 
 #prints list of commands after user_input help
 def help():
-    print(''' Here is a list of commands:
+    print(''' \nHere is a list of commands:
     Start work timer: "work"
     Start break timer: "break"
     Check on your buddy: "friendo"
     Need a little confidence boost: "vibe check"
     Exit the application: "bye"
-    List of commands: "help"
+    List of commands: "help"\n
     ''')
 
 
@@ -136,19 +138,19 @@ while name == "":
     try:
         welcome()
         heading()
-        name = str(input("Name your pet: \n"))
+        name = str(input("Name your Friendo: \n"))
         your_pet()
         help()
     except KeyboardInterrupt:
-        print("Gone so soon???")
+        print("\nGone so soon???\n")
         exit()
 
 #main user interface, takes any of the seven commands and returns the appropriate function
-while user_input != "bye":
+while user_input != "\nbye\n":
     try:
         #starts timer to count reduce pet_mood while waiting for input
         sad_timer = time.time()
-        user_input = input("enter a command: \n")
+        user_input = input("\nenter a command: \n")
         #ends timer after user_input and deducts from pet_mood
         end_sad = time.time() - sad_timer
         pet_mood -= end_sad // 5
@@ -164,23 +166,23 @@ while user_input != "bye":
         # pulls a random affirmation from the tuple
         elif user_input == "vibe check":
             affirm_tuple()
-            print("(づ￣ ³￣)づ ")
+            #print("(づ￣ ³￣)づ ")
         #prints list of usable commands
         elif user_input == "help":
             help()
         #exits app
-        elif user_input == "bye":
-            print("See you next time!")
+        elif user_input == "\nbye\n":
+            print("\nSee you next time!\n")
         # ckears terminal screen and prints heading function so the user knows they're still in the app
         elif user_input == "clear":
             os.system("clear")
             heading()
         #if user input isnt one of the above, lets the user know its incorrect
         else:
-            print("I dont know that command...type 'help' if you're stuck")
+            print("\nI dont know that command...type 'help' if you're stuck\n")
         #allows program to fail gracefully with kewboard interrupt
     except KeyboardInterrupt:
-        print("\nGreat work today!!!")
+        print("\nGreat work today!!!\n")
         exit()
 
 #no code beyond here

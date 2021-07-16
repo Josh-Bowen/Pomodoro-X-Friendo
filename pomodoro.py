@@ -1,5 +1,5 @@
 # from time import time
-
+import random
 
 # import time
 
@@ -36,3 +36,22 @@
 #         help()
 #     elif user_input == "bye":
 #         exit()
+
+
+def affirm_tuple():
+    my_tuple = (
+        "You're doing a great job!",                        #0
+        "Well done! Keep it up!",                           #1
+        "Keep going ya cutey!",                             #2
+        "10/10 effort! Don't quit now!",                    #3
+        "You can do this!",                                 #4
+        "Times might be tough, but it is not permanent.",   #5
+        "You can and you will(do the thing)!",              #6
+        "*slow clap*",                                      #7
+        "Be proud of yourself! You're wonderful!",          #8
+        "Making mistakes are the best way to learn.",       #9 
+    )
+    #prints random item from tuple
+    print(random.choice(my_tuple))
+
+affirm_tuple()
