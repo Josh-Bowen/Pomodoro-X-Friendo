@@ -22,7 +22,6 @@ def welcome():
     Have fun!!!
     
     ''')
-    help()
 
 def heading():
     header = text2art("Pomodoro X Friendo", font="small")
@@ -117,11 +116,16 @@ def help():
 
 
 user_input = ""
-welcome()
-heading()
-name = str(input("Name your pet: \n"))
-your_pet()
-
+name = ""
+while name == "":
+    try:
+        welcome()
+        heading()
+        name = str(input("Name your pet: \n"))
+        your_pet()
+    except KeyboardInterrupt:
+        print("Gone so soon???")
+        exit()
 
 while user_input != "bye":
     try:
@@ -138,7 +142,7 @@ while user_input != "bye":
             your_pet()
         elif user_input == "vibe check":
             affirm_tuple()
-            aprint("hugs")
+            print("(づ￣ ³￣)づ ")
         elif user_input == "help":
             help()
         elif user_input == "bye":
