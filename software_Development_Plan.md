@@ -48,12 +48,19 @@ Allows the user to ineract with different functions of the app
     * Clear the terminal window
     * Print the list of accepted commands
 
+## User Interaction and Experience
+On launch of the app, the user will be greated with a brief explanation of what the app is and how it works, as well as being prompted to name their pet. After which the app will launch into its main feature, in which the user can enter one of several commands. The application will display a list of the commands that can be used. 
+To use the other features of the app, the user needs to input the appropriate command, such as "work" or "break" to start one fo the timers or "bye" to quit the application. 
+if the user inputs the wrong command, the user is told that the command is wrong, that they can type "help" for a list appropriate commands. If the user presses control + C to exit, they will be met with a farewell message and the app will exit. 
+
+## Control Flow Diagram 
+
 
 * Testing
 * Deployment
 
 
-## UX
+
 
 ## Features
 
