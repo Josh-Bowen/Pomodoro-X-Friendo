@@ -7,11 +7,21 @@ from art import *
 
 def welcome():
     os.system("clear")
-    print("""
-    *****************************************************
-    ****Welcome to your best and newest Pomodoro app!****
-    *****************************************************
-    """)
+    heading()
+    greeting_2 = print('''
+    This application allows you to run a pomodoro app with a little bit of added motivation.
+    Meet your new best motivational buddy! You can give them whatever name you like down below.
+
+    As you the work and break timer run, your friendo's happiness will go up! 
+    If your friendo has to wait for your command, their happiness will go down, down, down...
+
+    Check on their mood at any time by typing "friendo".
+
+    if you get stuck, type "help".
+
+    Have fun!!!
+    
+    ''')
     help()
 
 def heading():
@@ -81,9 +91,9 @@ def affirm_tuple():
 
 #this is your python pet
 
-happy_pet = art("happy")
-neutral_pet = art("depressed")
-sad_pet = art("cry")
+happy_pet = "(　＾∇＾)"
+neutral_pet = "ƪ(‾ε‾“)ʃ"
+sad_pet = ".·´¯`(>▂<)´¯`·." 
 pet_mood = 500
 
 def your_pet():
@@ -99,7 +109,7 @@ def help():
     print(''' Here is a list of commands:
     Start work timer: "work"
     Start break timer: "break"
-    Check on your buddy: "buddy"
+    Check on your buddy: "friendo"
     Need a little confidence boost: "vibe check"
     Exit the application: "bye"
     List of commands: "help"
@@ -115,7 +125,11 @@ your_pet()
 
 while user_input != "bye":
     try:
+        sad_timer = time.time()
         user_input = input("enter a command: \n")
+        end_sad = time.time() - sad_timer
+        pet_mood -= end_sad // 5
+        print(pet_mood)
         if user_input == "work":
             work_timer()
         elif user_input == "break":
