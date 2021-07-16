@@ -1,10 +1,8 @@
 import time
 import os
-# import art
+from random import choice
+from art import *
 
-# art_1=art("coffee")
-
-# print(art_1)
 
 def welcome():
     os.system("clear")
@@ -14,6 +12,10 @@ def welcome():
     *****************************************************
     """)
     help()
+
+def heading():
+    header = text2art("Pomodoro X Friendo")
+    print(header)
 
 # Keeps track of number of study times
 study_times = 0
@@ -61,6 +63,22 @@ def break_timer():
         end_happy = time.time() - happy_timer
         pet_mood += end_happy // 10
 
+def affirm_tuple():
+    my_tuple = (
+        "You're doing a great job!",                        #0
+        "Well done! Keep it up!",                           #1
+        "Keep going ya cutey!",                             #2
+        "10/10 effort! Don't quit now!",                    #3
+        "You can do this!",                                 #4
+        "Times might be tough, but it is not permanent.",   #5
+        "You can and you will(do the thing)!",              #6
+        "*slow clap*",                                      #7
+        "Be proud of yourself! You're wonderful!",          #8
+        "Making mistakes are the best way to learn.",       #9 
+    )
+    print(choice(*my_tuple))
+
+
 
 #this is your python pet
 
@@ -70,7 +88,6 @@ sad_pet = ":("
 pet_mood = 500
 
 def your_pet():
-    name.title()
     if pet_mood <= 333:
         print(f"{name} is a bit sad {sad_pet}")
     elif pet_mood <= 666:
@@ -84,30 +101,36 @@ def help():
     Start work timer: "work"
     Start break timer: "break"
     Check on your buddy: "buddy"
+    Need a little confidence boost: "vibe check"
     Exit the application: "bye"
     List of commands: "help"
     ''')
 
-user_input = ""
 
+
+user_input = ""
+welcome()
+name = str(input("Name your pet: \n"))
+your_pet()
 
 while user_input != "bye":
     try:
-        welcome()
-        name = str(input("Name your pet: \n"))
-        your_pet()
+
         user_input = input("enter a command: \n")
         if user_input == "work":
             work_timer()
         elif user_input == "break":
             break_timer()
         elif user_input == "buddy":
-            os.system("clear")
             your_pet()
+        elif user_input == "vibe check":
+            affirm_tuple()
         elif user_input == "help":
             help()
         elif user_input == "bye":
             print("See you next time!")
+        elif user_input == "clear":
+            os.system("clear")
         else:
             print("I dont know that command...type 'help' if you're stuck")
     except KeyboardInterrupt:
