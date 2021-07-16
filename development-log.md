@@ -5,13 +5,6 @@ Progress for the Pomodoro style x Tamagotchi app is well underway. A trello boar
  
 Next on the agenda is to incorporate a timer that runs in the background in between the work and break timers that will either add or remove points from a counter. The counter will be used to keep track of the happiness of the pet avatar, going up when the break or study timer is running, and going down when either of those timers are not running. A flowchart is being used to keep track of the flow of the application. 
 
-
-Done: 
-* trello board
-* Flowchart
-* git repo
-
-Started:
-* Software development plan
-* Production log
+Development log 16/07/21
+Currently the application and all of its features are running without errors. The introduction to the app being a particular stand out. The most time consuming part to get to this point has been debugging errors that have caused the app to crash. The second most time consuming part has been trying to make the code more dry and less likely to fail in the future. Using the art module for ascii emojis turned out to be not great to use, as a lot of the characters would not display in the terminal and required some seemingly high level coding to get them functioning. Still need to write a bash script, help document and  also update some of the other documentation.  
 

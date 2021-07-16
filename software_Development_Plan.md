@@ -1,6 +1,13 @@
 # Software Development Plan
 
-Terminal App
+
+## Purpose & Scope
+The purpose of this app is to allow the user to have a pomodoro style timer that runs in the terminal, with an added layer of motivation to get their work done. 
+
+The app has the ability to run a 25 minute timer, for the user to time themselves as they work or study. They can also run a break timer, that runs for 5 minutes or 15 minutes if four work timers have run. 
+The extra motivation comes in the form of a Tamagotchi style pet that has different moods depending on how much the user sticks to the pomodoro timers or if they ignore it. 
+For a student like myself, pomodoro timers are a great way to promote productivity. 
+
     
 ## Interaction and Experience
 When the app is started, there will be a welcome message and brief explanation on what the app is, as well as how to use it. 
@@ -8,47 +15,43 @@ The user will be prompted to run a command to start the timer.
 
 
 ## Functions
-1) Work Timer Function<br>
+1) Timers<br>
 A timer that counts down from 25 Minutes.
-    * Requires prompt and user input to begin
-    * Counter will count down from 25 minutes
-    * Update the user with time remaining
-    * Requires sound and/ or visual indication when finished 
-    * If the user inputs the wrong prompt, an error message will be displayed and the list of accaptable inputs will be displayed. 
+* Requires prompt and user input to begin
+* Counter will count down from 25 minutes
+* Update the user with time remaining
+* Requires sound and/ or visual indication when finished 
+* If the user inputs the wrong prompt, an error message will be displayed and the list of accaptable inputs will be displayed. 
 
 <br>
 
-2) Break Timer<br>
-Timer that starts only after work timer.
-    * Runs for 5 minutes, 3 times.
-    * Every 4th time, runs for 15 minutes
-    * sound and/ or visual alert when finished
-    * prompt the user to begin new timer 
-    * If the user inputs the wrong prompt, an error message will be displayed and the list of accaptable inputs will be displayed. 
-
-<br>
-
-3) Happiness meter<br>
+2) Friendo <br>
 "Tamagotchi" style pet(Avatar) 
-    * Meter that represents "Happiness" of avatar
-    * goes down when the user doesnt start the break timer after the work timer(requires prompt)
-    * goes up when user break timer and work timer runs. 
-    *If the meter is full, a happy emoji will be displayed
-    *If the meter is half-way a neutral expression emoji will display
-    *when the meter is low, a sad emoji will display
-    * User can check how their "pet" is at any time. 
+* Meter that represents "Happiness" of avatar
+* goes down when the user doesnt start the break timer after the work timer(requires prompt)
+* goes up when user break timer and work timer runs. 
+* If the meter is high, a happy emoji will be displayed
+* If the meter is half-way a neutral expression emoji will display
+* when the meter is low, a sad emoji will display
+* User can check how their "pet" is at any time. 
 
 <br>
 
-4) Bonus Function<br>
-When prompted, user can ask for encouragement and the app will return an affirmation.
+3) User Interface <br>
+Allows the user to ineract with different functions of the app
+* By entering the correct command the user can:
+    * Exit the app 
+    * Check happiness of Friendo
+    * Start work/ study timer
+    * Start break timer
+    * Ask for an affirmation
+    * Clear the terminal window
+    * Print the list of accepted commands
+
 
 * Testing
 * Deployment
 
-
-
-# Purpose & Scope
 
 ## UX
 
