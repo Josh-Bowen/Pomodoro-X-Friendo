@@ -14,7 +14,7 @@ def welcome():
     help()
 
 def heading():
-    header = text2art("Pomodoro X Friendo")
+    header = text2art("Pomodoro X Friendo", font="small")
     print(header)
 
 # Keeps track of number of study times
@@ -78,11 +78,9 @@ def affirm_tuple():
     )
     print(choice(*my_tuple))
 
-
-
 #this is your python pet
 
-happy_pet = ":)"
+happy_pet = aprint("happy")
 neutral_pet = ":|"
 sad_pet = ":("
 pet_mood = 500
@@ -112,10 +110,10 @@ user_input = ""
 welcome()
 name = str(input("Name your pet: \n"))
 your_pet()
+heading()
 
 while user_input != "bye":
     try:
-
         user_input = input("enter a command: \n")
         if user_input == "work":
             work_timer()
@@ -131,6 +129,7 @@ while user_input != "bye":
             print("See you next time!")
         elif user_input == "clear":
             os.system("clear")
+            heading()
         else:
             print("I dont know that command...type 'help' if you're stuck")
     except KeyboardInterrupt:
