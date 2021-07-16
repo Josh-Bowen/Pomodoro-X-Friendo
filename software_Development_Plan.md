@@ -54,15 +54,5 @@ To use the other features of the app, the user needs to input the appropriate co
 if the user inputs the wrong command, the user is told that the command is wrong, that they can type "help" for a list appropriate commands. If the user presses control + C to exit, they will be met with a farewell message and the app will exit. 
 
 ## Control Flow Diagram 
-
-
-* Testing
-* Deployment
-
-
-
-
-## Features
-
-## Control Flow Diagram
+<img src="Joshua-Bowen-T1A3-flow-diagram.png" alt="Control Flow Diagram" width="600px" height="500px">
 
