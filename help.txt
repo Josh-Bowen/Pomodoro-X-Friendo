@@ -1,0 +1,36 @@
+System Requirements:
+    Requires a 64-bit processor and operating system
+    OS: Windows 10. Mac OS Big Sur. Linux Ubuntu, Debian or Kali
+    Memory: 2 GB RAM
+    Graphics: Any
+    Storage: 100 MB available space
+    Sound Card: Any
+
+
+    
+Software Requirements: 
+
+Python 3.8 or above
+Available at https://www.python.org/
+
+art ASCII Art Library for Python
+version 4.4 or above (5.2 is latest version)
+https://pypi.org/project/art/
+Installation guide available here:
+https://github.com/sepandhaghighi/art/blob/master/INSTALL.md
+
+
+Installation Guide:
+For linux or mac systems:
+1) Open terminal
+2) Check for python install by typing the following into the terminal
+    python --version
+3) Check for art module:
+    pip freeze
+4) Gain access to file to run application:
+    chmod -x friendo.sh 
+IFf you are not currently in the same folder as 'friendo.sh you will have to:
+    chmod -x path/to/friendo.sh
+5) Finally, start the app: 
+    ./friendo.sh
+
