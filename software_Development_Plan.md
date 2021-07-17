@@ -11,7 +11,9 @@ For a student like myself, pomodoro timers are a great way to promote productivi
     
 ## Interaction and Experience
 When the app is started, there will be a welcome message and brief explanation on what the app is, as well as how to use it. 
-The user will be prompted to name their new friendo, after which 
+The user will be prompted to name their new friendo, after which they will provided with a list of commands and what they do. 
+The user can then at their own discresion, start a work timer, break timer, ask for an affirmation, and more. The user can check on their friendo so long as a timer is not running, and see its progession as it gets happy if you work hard or sad if you slack off. 
+to exit the app, the user only need to enter in the command 'bye' or use a keyboard interrupt with ctrl + c.
 
 
 ## Functions
