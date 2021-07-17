@@ -147,14 +147,13 @@ while name == "":
         name = str(input(" Name your Friendo: \n"))
         your_pet()
         help()
-        print(sad_pet)
-        print(happy_pet)
     except KeyboardInterrupt:
         print("\nGone so soon???\n")
         exit()
 
 
-user_input = ""
+x = ""
+user_input = x.lower()
 
 #main user interface, takes any of the seven commands and returns the appropriate function
 while user_input != "\nbye\n":
@@ -183,7 +182,7 @@ while user_input != "\nbye\n":
         #exits app
         elif user_input == "bye":
             print("\n See you next time!\n")
-            time.sleep(5)
+            time.sleep(3)
             os.system("clear")
             exit()
         # ckears terminal screen and prints heading function so the user knows they're still in the app
